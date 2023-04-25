@@ -1,27 +1,26 @@
-<h3>Mood Today</h3>
+<h3>Edit Appointment</h3>
 <div class="row">
-    <form action="/stories" method="POST" class="col s12">
+    <form action="/appointments/{{appointment._id}}?_method=PUT" method="POST" class="col s12">
         <div class="row">
             <div class="input-field">
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" value="{{appointment.title}}">
                 <label for="title">Title</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field">
-                <select id="status" name="status">
-                    <option value="public" selected>Public</option>
-                    <option value="private">Private</option>
-                </select>
-                <label for="status">Status</label>
+                <input type="text" id="date" name="date" value="{{appointment.appointmentDate}}">
+                <label for="date">Date (YYYY-MM-DD)</label>
             </div>
         </div>
 
+        
+
         <div class="row">
             <div class="input-field">
-                <h5>Tell Us Your Story:</h5>
-                <textarea id="body" name="body"></textarea>
+                <h5>Description:</h5>
+                <textarea id="description" name="description">{{appointment.description}}</textarea>
             </div>
         </div>
 

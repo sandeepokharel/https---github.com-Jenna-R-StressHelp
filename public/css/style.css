@@ -2,11 +2,27 @@ p {
   margin: 10px 0 !important;
 }
 
+body{
+	font-family: 'Open Sans', sans-serif;
+	margin: 0px;
+}
+
+* {
+box-sizing: border-box;
+
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
 .login-container {
-  width: 400px;
+  max-width: 1270px;
   margin-top: 50px;
   text-align: center;
 }
+
+
 
 .fa-small {
   font-size: 16px !important;
@@ -73,6 +89,14 @@ p {
 
 }
 
+.blg-content p {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+
+
+
 #disabledSelect{
   height: 30px;
 }
@@ -118,4 +142,71 @@ p, label, checkbox {
 
 .help-block {
   color: #1E2749;
+}
+
+.table-custom td a, .table-custom th, .table-custom td{
+ color: #000000 !important;
+ font-weight: 500;
+}
+.table-custom .dash-status{
+  color: #000000;
+  font-weight: 500;
+  font-style: italic;
+}
+.w-49{
+  width: 49% !important;
+}
+.status-card .card-text{
+  justify-content: center !important;
+  font-weight: 500;
+  background-color: transparent !important;
+}
+.status-card p.card-text, .info-card p.card-text {
+    justify-content: space-between;
+    display: flex;
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 5px 20px 5px 10px;
+}
+.dropdown-menu{
+  background-color: #ee6e73 !important;
+  border-color: #ee6e73 !important;
+}
+.dropdown-menu a{
+  color: #ffffff !important;
+}
+.dropdown-menu a:hover{
+  color: #ee6e73 !important;
+  background-color: #ffffff !important;
+}
+.nav-wrapper .dropdown, .nav-wrapper a{
+  margin-top: -10px;
+}
+
+@media only screen and (max-width: 600px) {
+.navigation{
+  display: none;
+}
+}
+@media only screen and (max-width: 575px) {
+  nav {
+    height: 90px;
+    
+      }    
+}
+
+@media only screen and (max-width: 480px) {
+  
+
+  .dashboard.d-flex{
+    flex-direction: column;
+  }
+  .dashboard .w-49{
+    width: 100% !important;
+  }
+
+
+  /* your CSS here */
+
+
 }

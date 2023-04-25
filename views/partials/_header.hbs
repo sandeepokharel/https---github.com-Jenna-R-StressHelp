@@ -1,13 +1,127 @@
-<nav class="grey darken-3">
-    <div class="nav-wrapper container">
+<!DOCTYPE html>
+<html>
 
-        <a href="#!" class="brand-logo center">StoryBooks</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/stories/add">Add Story</a></li>
-            <li><a href="/stories">Public Stories</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
-        </ul>
-    </div>
-</nav>
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .custom-button {
+            color: rgb(38, 166, 154);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- your HTML code here -->
+    <nav class="grey-5">
+        <div class="nav-wrapper container">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1 d-flex justify-content-center align-items-center">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i
+                            class="fas fa-bars"></i></a>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-2 col-11 d-flex justify-content-center align-items-center">
+                    <h4><a href="/dashboard">Stress Help</a></h4>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-9 col-12 d-flex mt-md-3 mt-lg-3 mt-sm-3 flex-row-reverse navigation">
+                    {{!-- <button type="button" class="btn custom-button d-lg-block d-md-none d-sm-none d-xs-none ml-1">
+                        <a href="/auth/logout">
+                            Logout
+                        </a>
+                    </button>
+                    <button type="button" class="btn custom-button d-lg-block d-md-none d-sm-none d-xs-none ml-1">
+                        <a href="/appointments">
+                            Your Appointments
+                        </a>
+                    </button>
+                    <button type="button" class="btn custom-button d-lg-block d-md-none d-sm-none d-xs-none ml-1">
+                        <a href="/graph">
+                            HRV
+                        </a>
+                    </button>
+                    <button type="button" class="btn custom-button d-lg-block d-md-none d-sm-none d-xs-none">
+                        <a href="/book-appointment">
+                            Book Appointment
+                        </a>
+                    </button> --}}
+                    <a title="Logout" class="d-lg-block d-md-block d-sm-block d-xs-block ml-4" href="/auth/logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle ml-4 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-chart-line"></i> Data
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/graph">HRV</a>
+                            <a class="dropdown-item" href="/stress">Stress</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle  ml-4 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-calendar-plus"></i> Appointment
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/book-appointment">New Appointment</a>
+                            <a class="dropdown-item" href="/appointments">My Appointments</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="/dashboard">Home</a></li>
+                <li><a href="/appointments">My Appointments</a></li>
+                <li><a href="/book-appointment">Book Appointment</a></li>
+                <li><a href="/stories/add">Daily notes</a></li>
+                <li><a href="/graph">HRV</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+        <!--     <div class="nav-wrapper container" style="display: flex;">-->
+        <!--         <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>-->
+        <!--         <div>-->
+        <!--             <a href="#" class="brand-logo">Stress Help</a>-->
+        <!--             <div class="navbar-hide">-->
+        <!--                 <a href="/book-appointment">-->
+        <!--                     <button class="btn btn-small">-->
+        <!--                         Book Appointment-->
+        <!--                     </button>-->
+        <!--                 </a>-->
+        <!--                 <a href="/graph">-->
+        <!--                     <button class="btn">-->
+        <!--                         HRV-->
+        <!--                     </button>-->
+        <!--                 </a>-->
+        <!--                 <a href="/appointments">-->
+        <!--                     <button class="btn">-->
+        <!--                         Your Appointments-->
+        <!--                     </button>-->
+        <!--                 </a>-->
+        <!--                 <a href="/auth/logout">-->
+        <!--                     <button class="btn">-->
+        <!--                         Logout-->
+        <!--                     </button>-->
+        <!--                 </a>-->
+        <!--             </div>-->
+
+        <!--         </div>-->
+
+        <!--        <a href="#!" class="brand-logo">Stress Help</a>-->
+        <!--        <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>-->
+
+        <!--     </div>-->
+    </nav>
+
+</body>
+
+</html>

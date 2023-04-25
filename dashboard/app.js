@@ -6,17 +6,12 @@ const cors = require('cors');
 const { engine } = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
-const appointmentRoutes= require('./routes/appointments');
 const workoutRoutes = require('./routes/api/workouts');
 const userRoutes = require('./routes/user');
-const cookieParser = require('cookie-parser')
 
 mongoose.set('strictQuery', true);
 // express app
 const app = express();
-
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
 
 // middleware
 
@@ -24,7 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(cors());
-app.use(cookieParser())
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -66,7 +60,6 @@ app.use('/auth', require('./routes/auth'));
 app.use('/stories', require('./routes/stories'));
 app.use('/api/workouts', workoutRoutes);
 app.use('/api/user', userRoutes);
-app.use('/', appointmentRoutes); 
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI_LOCAL)

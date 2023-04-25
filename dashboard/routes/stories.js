@@ -61,11 +61,12 @@ router.get('/:id', ensureAuth, async (req, res) => {
 
 // @desc    Show edit page
 // @route   GET /stories/edit/:id
-
 router.get('/edit/:id', ensureAuth, async (req, res) => {
   try {
     console.log(req.params.id);
-    const story = await Story.findById(req.params.id).lean();
+    const story = await Story.findOne({
+      _id: req.params.id,
+    }).lean();
 
     if (!story) {
       return res.render('error/404');
@@ -82,18 +83,8 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 
 // @desc    Update story
 // @route   PUT /stories/:id
-
 router.put('/:id', ensureAuth, async (req, res) => {
   try {
-    let story = await Story.findById(req.params.id).lean();
-    if (!story) {
-      return res.render('error/404');
-    }
-
-    story = await Story.findOneAndUpdate({ _id: req.params.id }, req.body, {
-      new: true,
-      runValidators: true,
-    });
     console.log("Story's ID: ", req.params.id);
     res.redirect('/dashboard');
   } catch (err) {
@@ -104,7 +95,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
 
 // @desc    Delete story
 // @route   DELETE /stories/:id
-
 router.delete('/:id', ensureAuth, async (req, res) => {
   try {
     let story = await Story.findById(req.params.id).lean();

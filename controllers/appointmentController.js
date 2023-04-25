@@ -25,5 +25,36 @@ const saveAppointment =  async (req, res) => {
         // res.render('error/500');
     }
 }
-
-module.exports = { bookAppointment, saveAppointment }
+ // open edit appointment form
+const editAppointment = async (req, res) => {
+    try {
+      const appointment = await Appointment.findById(req.params.id).lean();
+      res.render('editAppointment', { appointment });
+    } catch (err) {
+      console.error(err);
+      res.render('error/500');
+    }
+  }
+  
+  // save updated appointment form
+  const updateAppointment = async (req, res) => {
+    try {
+      let appointment = await Appointment.findById(req.params.id).lean();
+  
+      if (!appointment) {
+        return res.render('error/404');
+      }
+  
+      appointment = await Appointment.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+        runValidators: true,
+      });
+  
+      res.render('editAppointment', { appointment, successMessage: 'Appointment updated successfully' });
+    } catch (err) {
+      console.error(err);
+      res.render('editAppointment', { errorMessage: 'Something went wrong while updating the appointment!' });
+    }
+  }
+  
+module.exports = { bookAppointment, saveAppointment , editAppointment, updateAppointment};
